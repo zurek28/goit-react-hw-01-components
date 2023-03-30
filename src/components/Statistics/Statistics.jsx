@@ -1,4 +1,5 @@
-import css from '../style/Statistics.module.css';
+import css from './Statistics.module.css';
+import PropTypes from 'prop-types';
 
 import { getColor } from '../getColor';
 
@@ -17,4 +18,19 @@ export const Statistics = ({ title, stats }) => {
       </ul>
     </section>
   );
+};
+
+Statistics.defaultProps = {
+  title: null,
+};
+
+Statistics.propTypes = {
+  title: PropTypes.string,
+  stats: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      label: PropTypes.string,
+      percentage: PropTypes.number,
+    })
+  ),
 };

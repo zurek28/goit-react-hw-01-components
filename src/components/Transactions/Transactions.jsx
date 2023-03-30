@@ -1,4 +1,6 @@
-import css from '../style/TransactionHistory.module.css';
+import css from './TransactionHistory.module.css';
+
+import PropTypes from 'prop-types';
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
@@ -34,6 +36,17 @@ const TransactionHistory = ({ children }) => {
       </table>
     </>
   );
+};
+
+TransactionHistory.propTypes = {
+  transactions: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      type: PropTypes.string,
+      amount: PropTypes.string,
+      currency: PropTypes.string,
+    })
+  ),
 };
 
 export { TransactionHistory, TransactionHistoryItem };

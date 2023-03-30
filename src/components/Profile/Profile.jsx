@@ -1,4 +1,6 @@
-import css from '../style/Profile.module.css';
+import css from './Profile.module.css';
+
+import PropTypes from 'prop-types';
 
 export function Profile({ username, tag, location, avatar, stats }) {
   return (
@@ -27,3 +29,22 @@ export function Profile({ username, tag, location, avatar, stats }) {
     </div>
   );
 }
+
+Profile.defaultProps = {
+  username: 'Anonymous',
+  location: 'not specified',
+  avatar:
+    'https://cdn0.iconfinder.com/data/icons/communication-456/24/account_profile_user_contact_person_avatar_placeholder-512.png',
+};
+
+Profile.propTypes = {
+  username: PropTypes.string,
+  tag: PropTypes.string,
+  location: PropTypes.string,
+  avatar: PropTypes.string,
+  stats: PropTypes.exact({
+    followers: PropTypes.number,
+    views: PropTypes.number,
+    likes: PropTypes.number,
+  }),
+};

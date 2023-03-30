@@ -1,4 +1,5 @@
-import css from '../style/FriendsList.module.css';
+import css from './FriendsList.module.css';
+import PropTypes from 'prop-types';
 
 const FriendListItem = ({ friends }) => {
   return friends.map(friend => (
@@ -26,6 +27,23 @@ const FriendList = ({ children }) => {
       </ul>
     </>
   );
+};
+
+FriendListItem.defaultProps = {
+  avatar:
+    'https://cdn0.iconfinder.com/data/icons/communication-456/24/account_profile_user_contact_person_avatar_placeholder-512.png',
+  name: 'Anonymous',
+};
+
+FriendList.propTypes = {
+  friends: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string,
+      isOnline: PropTypes.bool,
+      avatar: PropTypes.string,
+      name: PropTypes.string,
+    })
+  ),
 };
 
 export { FriendListItem, FriendList };
