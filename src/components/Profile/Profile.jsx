@@ -1,9 +1,9 @@
-import css from './Profile.module.css';
+import css from '../style/Profile.module.css';
 
-export const Profile = ({ username, tag, location, avatar, stats }) => {
+export function Profile({ username, tag, location, avatar, stats }) {
   return (
     <div className={css.profile}>
-      <div className={css.description}>
+      <div className={css.discription}>
         <img src={avatar} alt="User avatar" className={css.avatar} />
         <p className={css.name}>{username}</p>
         <p className={css.tag}>@{tag}</p>
@@ -26,4 +26,4 @@ export const Profile = ({ username, tag, location, avatar, stats }) => {
       </ul>
     </div>
   );
-};
+}
